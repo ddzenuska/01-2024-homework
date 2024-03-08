@@ -13,7 +13,6 @@ public class Casting {
         int d = 4; // changed from double to int, because the supplied number 4 isn't a decimal number
         int e = 5; // changed from float to int, because the supplied number 5 isn't a fractional number
 
-//        fixme - should be 15 :|
         int sum = a + b + c + d + e;
         System.out.println(sum);
     }
@@ -24,8 +23,7 @@ public class Casting {
         int c = 3;
         double d = 4.2;
         double e = 5.3; // changed 5.4 to 5.3 to gain the correct result of 15.5 instead of 15.6.
-
-//        fixme - should be 15.5 :|
+        
         double sum = a + b + c + d + e;
         System.out.println(sum);
     }
