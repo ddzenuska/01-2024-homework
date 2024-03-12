@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class BMICalculator {
-    static double ibmStatus;
+    static double bmiStatus;
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in); // new user input obj.
@@ -38,16 +38,16 @@ public class BMICalculator {
     }
 
     public static void IBMStatus(double weight, double height) { // method calculates and prints ibm score.
-        ibmStatus = (weight * 703) / (height * height);
+        bmiStatus = (weight * 703) / (height * height);
         DecimalFormat df = new DecimalFormat("0.00");
-        if (ibmStatus >= 18.5 && ibmStatus <= 25) {
-            System.out.println("\nYour IBM score is " + df.format(ibmStatus) + ". You have optimal weight.\n" +
+        if (bmiStatus >= 18.5 && bmiStatus <= 25) {
+            System.out.println("\nYour IBM score is " + df.format(bmiStatus) + ". You have optimal weight.\n" +
                     "If you would like to exit, type \"exit\".\n");
-        } else if (ibmStatus < 18.5) {
-            System.out.println("\nYour IBM score is " + df.format(ibmStatus) + ". You are underweight.\n" +
+        } else if (bmiStatus < 18.5) {
+            System.out.println("\nYour IBM score is " + df.format(bmiStatus) + ". You are underweight.\n" +
                     "If you would like to exit, type \"exit\".\n");
         } else {
-            System.out.println("\nYour IBM score is " + df.format(ibmStatus) + ". You are overweight.\n" +
+            System.out.println("\nYour IBM score is " + df.format(bmiStatus) + ". You are overweight.\n" +
                     "If you would like to exit, type \"exit\".\n");
         }
     }
