@@ -7,8 +7,8 @@ import java.text.DecimalFormat;
 public class MinuteConverter {
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in); // new scanner which enables user input.
-        double inputTime; // variable which holds the input number of minutes.
+        Scanner in = new Scanner(System.in);
+        double inputTime;
 
         System.out.print("Hello, dear user! I convert minutes in to years and days.\n"); // introduction to the program.
 

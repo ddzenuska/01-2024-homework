@@ -8,7 +8,6 @@ public class UpperCaseCount {
         String inputStr; // declared a string variable which will hold the users input.
         System.out.println("Hello! This program counts the amount of uppercase letters in a provided text. If you" +
                 "\nwould like to quit this program, please type the word exit."); // the program introduces itself.
-
         do {
             System.out.print("Provide your text: ");
             inputStr = scanner.nextLine();

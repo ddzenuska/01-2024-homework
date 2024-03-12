@@ -7,7 +7,7 @@ public class IsItFifteen {
         Scanner in = new Scanner(System.in);
         int a, b;
 
-        System.out.println("I print true if either one of two provided integers is 15 or their sum or difference is 15.");.
+        System.out.println("I print true if either one of two provided integers is 15 or their sum or difference is 15.");
         do {
             System.out.print("\n\tPlease provide the first number: ");
 
@@ -34,6 +34,7 @@ public class IsItFifteen {
         } while (true); // while it is true that the if statements evaluate to false, the loop repeats.
         in.close();
     }
+
     public static boolean isItFifteen(int a, int b) { // method which checks for 15 and returns true.
 
         return (a == 15 || b == 15 || a + b == 15 || a - b == 15 || b - a == 15);

@@ -28,7 +28,7 @@ public class BMICalculator {
                     break;
                 } else {
                     System.out.println("\nInvalid input. Try again.");
-                } // if the inputs are incorrect, one of these else statements execute.
+                } // if the inputs are incorrect.
             } else {
                 System.out.println("\nInvalid input. Try again.");
                 in.next();
@@ -37,7 +37,7 @@ public class BMICalculator {
         in.close();
     }
 
-    public static void IBMStatus(double weight, double height) { // method calculates and print ibm score.
+    public static void IBMStatus(double weight, double height) { // method calculates and prints ibm score.
         ibmStatus = (weight * 703) / (height * height);
         DecimalFormat df = new DecimalFormat("0.00");
         if (ibmStatus >= 18.5 && ibmStatus <= 25) {
