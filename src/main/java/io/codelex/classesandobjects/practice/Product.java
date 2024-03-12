@@ -1,9 +1,9 @@
 package io.codelex.classesandobjects.practice;
 
 public class Product {
-    String product;
-    double startingPrice;
-    int startingAmount;
+    private String product;
+    private double startingPrice;
+    private int startingAmount;
 
     public static void main(String[] args) {
 
@@ -16,20 +16,20 @@ public class Product {
     }
 
     public Product(String name, double priceAtStart, int amountAtStart) {
-        product = name;
-        startingPrice = priceAtStart;
-        startingAmount = amountAtStart;
+        this.product = name;
+        this.startingPrice = priceAtStart;
+        this.startingAmount = amountAtStart;
     }
 
     public void printProduct() {
-        System.out.println(product + ", price " + startingPrice + " amount " + startingAmount);
+        System.out.println(this.product + ", price " + this.startingPrice + " amount " + this.startingAmount);
     }
 
     public void changeQuantity(int amount) {
-        startingAmount -= amount;
+        this.startingAmount -= amount;
     }
 
     public void changePrice(double price) {
-        startingPrice -= price;
+        this.startingPrice -= price;
     }
 }
