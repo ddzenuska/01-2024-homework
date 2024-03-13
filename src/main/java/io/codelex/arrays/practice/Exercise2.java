@@ -4,23 +4,26 @@ import java.util.Scanner;
 
 public class Exercise2 {
 
+    //TODO: Write a Java program to sum values of an array.
+    // Array values are starting from min (including) till max (including) number.
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Please enter a min number: ");
+        System.out.println("Please enter a min number");
         int minNumber = input.nextInt();
 
-        System.out.print("Please enter a max number: ");
+        System.out.println("Please enter a max number");
         int maxNumber = input.nextInt();
 
-        int arrSize = maxNumber - minNumber + 1; // "+1" make numbers inclusive.
-        int myArray[] = new int[arrSize]; // initialized with the size of the array.
+        int myArray[];
         int sum = 0;
 
-        for (int i = 0; i < arrSize; i++) {
-            myArray[i] += minNumber + i; // starts from minNum value and adds "i" one each iteration until arrSize.
-            sum += myArray[i];
+        /*
+        fixme
+        for (........) {
+        ........
         }
+        */
 
         System.out.println("The sum is " + sum);
     }
