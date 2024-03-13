@@ -20,7 +20,10 @@ public class RandomNumberPositions {
         boolean foundIt = false;
 
         for (i = 0; i < integers.length; i++) {
-            //todo - search for integer - break when you have found what you searched for
+            if (integers[i] == searchFor) { // if the iterated number is same as user input value, means it exists.
+                foundIt = true; // foundIt is set to true and the loop is stoped.
+                break;
+            }
         }
 
         if (foundIt) {
