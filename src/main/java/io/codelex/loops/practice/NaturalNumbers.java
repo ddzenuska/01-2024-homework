@@ -1,18 +1,18 @@
 package io.codelex.loops.practice;
 
+/**
+ * Modified print statements to print the message and result together on one line to be more readable.
+ */
 public class NaturalNumbers {
 
     public static void main(String[] args) {
         int i;
 
-        System.out.println("The first 10 natural numbers are: ");
+        System.out.print("The first 10 natural numbers are: ");
 
-        /*
-        todo - write a program in Java to display the first 10 natural numbers
-        for (......) {
-          System.out.println(i);
+        for (i = 1; i <= 11; i++) {
+            System.out.print(i + " ");
         }
-        */
     }
 
 }
