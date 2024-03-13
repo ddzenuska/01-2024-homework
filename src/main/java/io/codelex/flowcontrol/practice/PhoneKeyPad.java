@@ -3,6 +3,18 @@ package io.codelex.flowcontrol.practice;
 import java.util.Scanner;
 
 public class PhoneKeyPad {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Please provide a text to convert: ");
+        if (in.hasNext()) {
+            String text = in.nextLine().toLowerCase(); // if the input is a String, then it proceeds to call "converter" method on it.
+            System.out.print("\nText in digits: "); // prints result message on one line with the converted text digits.
+            converter(text);
+        } else {
+            System.err.println("Invalid input!");
+        }
+    }
 
     public static int padDigits(char strChar) { // converts characters, gained from "converter" method, in to numbers.
         return switch (strChar) { // used new version of switch statements
@@ -27,16 +39,4 @@ public class PhoneKeyPad {
         }
     }
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-
-        System.out.print("Please provide a text to convert: ");
-        if (in.hasNext()) {
-            String text = in.nextLine().toLowerCase(); // if the input is a String, then it proceeds to call "converter" method on it.
-            System.out.print("\nText in digits: "); // prints result message on one line with the converted text digits.
-            converter(text);
-        } else {
-            System.err.println("Invalid input!");
-        }
-    }
 }

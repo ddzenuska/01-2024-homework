@@ -3,7 +3,6 @@ package io.codelex.flowcontrol.practice;
 import java.util.Scanner;
 
 public class TenBillion {
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("Input an integer number less than ten billion: ");
@@ -47,7 +46,5 @@ public class TenBillion {
         } else { // if input value is not a long, then this error message prints.
             System.err.println("The number is not a long");
         }
-
     }
-
 }
