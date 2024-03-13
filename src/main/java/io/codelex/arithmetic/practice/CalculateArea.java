@@ -1,7 +1,5 @@
 package io.codelex.arithmetic.practice;
 
-// Testa commit
-
 import java.math.BigDecimal;
 import java.util.Scanner;
 
@@ -24,19 +22,15 @@ public class CalculateArea {
             } else if (choice == 4) {
                 System.out.println("Thanks for calculating!");
             }
-
         } while (choice != 4);
     }
 
     public static int getMenu() {
-
         int userChoice;
 
-        // keyboard input
         Scanner keyboard = new Scanner(System.in);
-
         // Display the menu.
-        System.out.println("Geometry Calculator\n");
+        System.out.println("\n\tGeometry Calculator\n");
         System.out.println("1. Calculate the Area of a Circle");
         System.out.println("2. Calculate the Area of a Rectangle");
         System.out.println("3. Calculate the Area of a Triangle");
@@ -45,72 +39,87 @@ public class CalculateArea {
 
         // get input from user
         userChoice = keyboard.nextInt();
-
         // validate input
         while (userChoice < 1 || userChoice > 4) {
             System.out.print("Please enter a valid range: 1, 2, 3, or 4: ");
             userChoice = keyboard.nextInt();
+            keyboard.nextLine(); // consumes input that is left after user choise
         }
-
         return userChoice;
     }
 
+    public static BigDecimal areaOfCircle(BigDecimal r) {
+        if (r.compareTo(BigDecimal.ZERO) < 0) {
+            System.out.println("Invalid input!");
+            return ZERO;
+        }
+        return BigDecimal.valueOf(Math.PI).multiply(r.multiply(r)); // to be able to multiply "double" with "BigDecimal".
+    }
+
+    public static BigDecimal areaOfRectangle(BigDecimal len, BigDecimal width) {
+        if (len.compareTo(BigDecimal.ZERO) < 0 || width.compareTo(BigDecimal.ZERO) < 0) {
+            System.out.println("Invalid input!");
+            return ZERO;
+        }
+        return len.multiply(width);
+    }
+
+    public static BigDecimal areaOfTriangle(BigDecimal lenBase, BigDecimal height) {
+        if (lenBase.compareTo(BigDecimal.ZERO) < 0 || height.compareTo(BigDecimal.ZERO) < 0) {
+            System.out.println("Invalid input!");
+            return ZERO;
+        }
+        return lenBase.multiply(height).multiply(BigDecimal.valueOf(0.5));
+    }
+
     public static void calculateCircleArea() {
-
         BigDecimal radius = ZERO;
-
-        // Get input from user
         Scanner keyboard = new Scanner(System.in);
-        System.out.print("What is the circle's radius? ");
-        //todo
-        //radius = keyboard.nextDouble();
 
+        System.out.print("What is the circle's radius? ");
+        radius = keyboard.nextBigDecimal();
+
+        BigDecimal result = CalculateArea.areaOfCircle(radius);
         // Display output
-        System.out.println("The circle's area is "
-                + Geometry.areaOfCircle(radius));
+        if (result.compareTo(BigDecimal.ZERO) != 0) {
+            System.out.println("The circle's area is " + result);
+        } /* otherwise, nothing gets printed except for the error message. Without this statement, the error message is
+         printed with the result message.*/
     }
 
     public static void calculateRectangleArea() {
         BigDecimal length = ZERO;
         BigDecimal width = ZERO;
 
-        // Get input from user
         Scanner keyboard = new Scanner(System.in);
 
-        // Get length
         System.out.print("Enter length? ");
-        //todo
-        //length = keyboard.nextDouble();
+        length = keyboard.nextBigDecimal();
 
-        // Get width
         System.out.print("Enter width? ");
-        //todo
-        //width = keyboard.nextDouble();
+        width = keyboard.nextBigDecimal();
 
-        // Display output
-        System.out.println("The rectangle's area is "
-                + Geometry.areaOfRectangle(length, width));
+        BigDecimal result = CalculateArea.areaOfRectangle(length, width);
+        if (result.compareTo(BigDecimal.ZERO) != 0) {
+            System.out.println("The circle's area is " + result);
+        }
     }
 
     public static void calculateTriangleArea() {
         BigDecimal base = ZERO;
         BigDecimal height = ZERO;
 
-        // Get input from user
         Scanner keyboard = new Scanner(System.in);
 
-        // Get the base
         System.out.print("Enter length of the triangle's base? ");
-        //todo
-        //base = keyboard.nextDouble();
+        base = keyboard.nextBigDecimal();
 
-        // Get the height
         System.out.print("Enter triangle's height? ");
-        //todo
-        //height = keyboard.nextDouble();
+        height = keyboard.nextBigDecimal();
 
-        // Display the triangle's area.
-        System.out.println("The triangle's area is "
-                + Geometry.areaOfTriangle(base, height));
+        BigDecimal result = CalculateArea.areaOfTriangle(base, height);
+        if (result.compareTo(BigDecimal.ZERO) != 0) {
+            System.out.println("The circle's area is " + result);
+        }
     }
 }
