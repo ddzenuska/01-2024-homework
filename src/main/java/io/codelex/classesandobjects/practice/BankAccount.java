@@ -12,16 +12,6 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public static void main(String[] args) {
-        BankAccount benben = new BankAccount("Benson", 17.50);
-
-        System.out.println(benben);
-
-        benben.deposit(128);
-        benben.withdraw(200);
-        System.out.println(benben);
-    }
-
     public final void deposit(double amount) {
         balance += amount;
     }
