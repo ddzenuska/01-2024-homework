@@ -13,7 +13,8 @@ public class WordGuess {
         int randIndex = rand.nextInt(words.length); // random word index for randWords array.
         String randWord = words[randIndex]; // variable with a random word.
 
-        char[] hiddenWord = new char[randWord.length()], missed = new char[3];
+        char[] hiddenWord = new char[randWord.length()];
+        char[] missed = new char[3];
         String userGuess;
         int tries = 0;
         boolean guessedRight, solved = false;
@@ -66,7 +67,7 @@ public class WordGuess {
         }
     }
 
-    public static void outputWord(char[] word) { // prints words hidden letters when is guessed right and "_" when isn't.
+    public static void outputWord(char[] word) {
         for (char c : word) {
             System.out.print(c + " ");
         }
