@@ -15,11 +15,11 @@ public class ArrayListExercise7 {
         colors.add("Black");
 
 //      TODO: Check if list contains "White" element
-//        if (...) {
-//            System.out.println("Found the element");
-//        } else {
-//            System.out.println("There is no such element");
-//        }
+        if (colors.contains("White")) {
+            System.out.println("Found the element");
+        } else {
+            System.out.println("There is no such element");
+        }
     }
 
 }
