@@ -1,15 +1,15 @@
 package io.codelex.polymorphism.practice.exercise1;
 
-public class Bmw implements Car {
+public class Toyota implements Car {
     private Integer currentSpeed = 0;
 
-    public Bmw(Integer currentSpeed) {
+    public Toyota(Integer currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
     @Override
     public void speedUp() {
-        currentSpeed += 12;
+        currentSpeed += 5;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class Bmw implements Car {
 
     @Override
     public String toString() {
-        return "Bmw{" +
+        return "Toyota{" +
                 "currentSpeed=" + currentSpeed +
                 '}';
     }
