@@ -17,6 +17,6 @@ class Hoarding extends Advert {
 
 
     public String toString() {
-        return super.toString() + " Hoarding: Days=" + numDays + " Rate=" + rate;
+        return super.toString() + " -> Hoarding: Days=" + numDays + " Rate=" + rate;
     }
 }
