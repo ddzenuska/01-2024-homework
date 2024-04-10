@@ -4,27 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class StorageHouse {
+public class StorageHouse<T> {
 
-    //Fix this class so that storage house can contain other types of objects not only numbers
-    //Test the functionality
+    List<T> items = new ArrayList<>();
 
-    List<Integer> items = new ArrayList<>();
-
-    public StorageHouse(Integer firstItem) {
+    public StorageHouse(T firstItem) {
         items.add(firstItem);
     }
 
-    public void addMoreItems(Integer item) {
+    public void addMoreItems(T item) {
         items.add(item);
     }
 
-    public Optional<Integer> getMaybeFirstItem() {
+    public Optional<T> getMaybeFirstItem() {
         return items.stream().findFirst();
     }
 
     public void printItems() {
         items.forEach(System.out::println);
     }
-
 }
