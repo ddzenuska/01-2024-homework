@@ -1,5 +1,5 @@
 package io.codelex.oop.summary.ordersAndInvoices;
 
-public interface Item extends SellableThing {
+public interface Service extends SellableThing {
 
 }

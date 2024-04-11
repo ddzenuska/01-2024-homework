@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 public class Invoice {
     private final Order order;
     private final String invoiceNr;
-    private final InvoiceStatus invoiceStatus;
+    private InvoiceStatus invoiceStatus; // not final so send() can change status to SENT
     private final double vatRate = 0.21;
 
     public Invoice(Order order, String invoiceNr) {
@@ -19,6 +19,7 @@ public class Invoice {
     }
 
     public void send() {
+        invoiceStatus = InvoiceStatus.SENT;
     }
 
     /*
@@ -29,7 +30,7 @@ public class Invoice {
     public String formatedInvoice() {
         DecimalFormat df = new DecimalFormat("#0.00");
         StringBuilder resultString = new StringBuilder();
-        double total = order.getItems().stream().mapToDouble(Item::getPrice).sum();
+        double total = order.getItems().stream().mapToDouble(SellableThing::getPrice).sum();
         double vat = total * vatRate;
         double vatTotal = vat + total;
 

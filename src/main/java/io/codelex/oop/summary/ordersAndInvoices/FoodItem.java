@@ -20,7 +20,7 @@ public class FoodItem extends AbstractItem {
     }
 
     @Override
-    public String fullInfo() {
-        return String.format("%s, %.2f EUR, best before: %s", getItemName(), getPrice(), getExpDate()); // regex for simpler look
+    public String fullInfo() { // used regex to format the output
+        return String.format("%s, %.2f EUR, best before: %s", getItemName(), getPrice(), getExpDate());
     }
 }

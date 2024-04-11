@@ -2,6 +2,7 @@ package io.codelex.oop.summary.ordersAndInvoices;
 
 import io.codelex.oop.summary.generics.Printer;
 
+import javax.crypto.SealedObject;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -10,13 +11,13 @@ import java.util.Locale;
 
 public class Order {
 
-    protected List<Item> itemList;
+    protected List<SellableThing> itemList;
 
     public Order() {
         this.itemList = new ArrayList<>();
     }
 
-    public void addItem(Item item) {
+    public void addItem(SellableThing item) {
         if (item instanceof FoodItem) { // if the item is a food item, checks if the expiration date is not less than today
             FoodItem foodItem = (FoodItem) item;
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy"); // formats for the expiration date
@@ -27,7 +28,7 @@ public class Order {
         this.itemList.add(item);
     }
 
-    public List<Item> getItems() {
+    public List<SellableThing> getItems() {
         return itemList;
     }
 
