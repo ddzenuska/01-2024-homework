@@ -1,7 +1,12 @@
 package io.codelex.oop.summary.ordersAndInvoices;
 
+import io.codelex.oop.summary.generics.Printer;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Order {
 
@@ -12,6 +17,13 @@ public class Order {
     }
 
     public void addItem(Item item) {
+        if (item instanceof FoodItem) { // if the item is a food item, checks if the expiration date is not less than today
+            FoodItem foodItem = (FoodItem) item;
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy"); // formats for the expiration date
+            if (LocalDate.parse(foodItem.getExpDate(), formatter).isBefore(LocalDate.now())) {
+                throw new BadFoodException("Cannot add a food item with an expiration date less than today.");
+            }
+        }
         this.itemList.add(item);
     }
 

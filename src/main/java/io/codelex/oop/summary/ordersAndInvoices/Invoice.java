@@ -10,6 +10,9 @@ public class Invoice {
     private final double vatRate = 0.21;
 
     public Invoice(Order order, String invoiceNr) {
+        if (order.getItems().isEmpty()) {
+            throw new WrongOrderException("Order is empty");
+        }
         this.order = order;
         this.invoiceNr = invoiceNr;
         this.invoiceStatus = InvoiceStatus.APPROVED;
