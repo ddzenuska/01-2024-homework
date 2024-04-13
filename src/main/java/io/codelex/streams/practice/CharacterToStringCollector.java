@@ -30,8 +30,7 @@ public class CharacterToStringCollector implements Collector<Character, StringBu
     }
 
     @Override
-    public Set<Characteristics> characteristics() { //returns a set of characteristics of this Collector,
-        // UNORDERED in this case
-        return Collections.singleton(Characteristics.UNORDERED);
+    public Set<Characteristics> characteristics() { //returns a set of characteristics of this Collector (UNORDERED)
+        return Collections.singleton(Characteristics.UNORDERED); //singleton returns an immutable set containing only the specified object
     }
 }
