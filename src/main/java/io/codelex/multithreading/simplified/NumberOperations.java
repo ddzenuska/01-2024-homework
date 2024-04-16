@@ -1,6 +1,5 @@
 package io.codelex.multithreading.simplified;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,6 +16,14 @@ public class NumberOperations {
 
     public static void main(String[] args) {
         List<Integer> numberList = createNumberList();
+
+        int sum = numberList.parallelStream().mapToInt(Integer::intValue).sum();
+        double avg = numberList.parallelStream().mapToInt(Integer::intValue).average().orElse(0);
+        int sumOfEverySecNum = numberList.parallelStream().filter(n -> numberList.indexOf(n) % 2 == 1).mapToInt(Integer::intValue).sum();
+
+        System.out.println(sum);
+        System.out.println(avg);
+        System.out.println(sumOfEverySecNum);
     }
 
     public static List<Integer> createNumberList() {
@@ -27,5 +34,4 @@ public class NumberOperations {
                 155, 157, 159, 161, 163, 165, 167, 169, 171, 173, 175, 177, 179, 181, 183, 185, 187,
                 189, 191, 193, 195, 197, 199);
     }
-
 }
