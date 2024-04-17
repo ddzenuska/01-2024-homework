@@ -1,6 +1,7 @@
 package io.codelex.collections.practice.lists;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("Duplicates")
@@ -16,7 +17,7 @@ public class ArrayListExercise10 {
 
         System.out.println("Original array list: " + colors);
         //TODO: Remove all elements from list
-        //...
+        colors.removeAll(colors);
 
         System.out.println("New array list: " + colors);
     }
