@@ -1,8 +1,10 @@
 package io.codelex.multithreading.simplified;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class NumberOperations {
 
@@ -15,8 +17,20 @@ public class NumberOperations {
     All operations must be done in parallel
     */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         List<Integer> numberList = createNumberList();
+
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        // Used Future because Runnable required longer code, doesn't return the value and Future waits for the all of the operations to execute
+        Future<Integer> sum = executor.submit(() -> numberList.parallelStream().mapToInt(Integer::intValue).sum());
+        Future<Double> avg = executor.submit(() -> numberList.parallelStream().mapToInt(Integer::intValue).average().orElse(0));
+        Future<Integer> sumOfEverySecNum = executor.submit(() -> numberList.parallelStream().filter(n -> numberList.indexOf(n) % 2 == 1).mapToInt(Integer::intValue).sum());
+        executor.shutdown();
+
+        System.out.println(sum.get());
+        System.out.println(avg.get());
+        System.out.println(sumOfEverySecNum.get());
     }
 
     public static List<Integer> createNumberList() {
@@ -27,5 +41,4 @@ public class NumberOperations {
                 155, 157, 159, 161, 163, 165, 167, 169, 171, 173, 175, 177, 179, 181, 183, 185, 187,
                 189, 191, 193, 195, 197, 199);
     }
-
 }

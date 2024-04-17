@@ -16,8 +16,8 @@ public class ScooterRental {
      Fix the program so that it would work correctly.
     */
 
-    private static int maxScootersAvailable = 5;
-    private static boolean canTakeMoreScooters = true;
+    private static volatile int maxScootersAvailable = 5;
+    private static volatile boolean canTakeMoreScooters = true;
 
     public static void main(String[] args) {
 
@@ -35,7 +35,7 @@ public class ScooterRental {
 
         Runnable checkScooterAvailability = () -> {
             while (maxScootersAvailable > 0) {
-
+                
             }
             canTakeMoreScooters = false;
             System.out.println("No more scooters available!");
