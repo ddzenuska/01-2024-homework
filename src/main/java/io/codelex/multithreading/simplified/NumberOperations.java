@@ -2,6 +2,9 @@ package io.codelex.multithreading.simplified;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class NumberOperations {
 
@@ -14,16 +17,20 @@ public class NumberOperations {
     All operations must be done in parallel
     */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         List<Integer> numberList = createNumberList();
 
-        int sum = numberList.parallelStream().mapToInt(Integer::intValue).sum();
-        double avg = numberList.parallelStream().mapToInt(Integer::intValue).average().orElse(0);
-        int sumOfEverySecNum = numberList.parallelStream().filter(n -> numberList.indexOf(n) % 2 == 1).mapToInt(Integer::intValue).sum();
+        ExecutorService executor = Executors.newFixedThreadPool(3);
 
-        System.out.println(sum);
-        System.out.println(avg);
-        System.out.println(sumOfEverySecNum);
+        // Used Future because Runnable required longer code, doesn't return the value and Future waits for the all of the operations to execute
+        Future<Integer> sum = executor.submit(() -> numberList.parallelStream().mapToInt(Integer::intValue).sum());
+        Future<Double> avg = executor.submit(() -> numberList.parallelStream().mapToInt(Integer::intValue).average().orElse(0));
+        Future<Integer> sumOfEverySecNum = executor.submit(() -> numberList.parallelStream().filter(n -> numberList.indexOf(n) % 2 == 1).mapToInt(Integer::intValue).sum());
+        executor.shutdown();
+
+        System.out.println(sum.get());
+        System.out.println(avg.get());
+        System.out.println(sumOfEverySecNum.get());
     }
 
     public static List<Integer> createNumberList() {
