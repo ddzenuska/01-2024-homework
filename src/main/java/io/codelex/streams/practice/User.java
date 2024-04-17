@@ -1,7 +1,9 @@
 package io.codelex.streams.practice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class User {
     private String name;
@@ -44,11 +46,13 @@ public class User {
         return male;
     }
 
+
+    /*
+     * Creates a stream of ages
+     * A map, creating a new user for each age
+     * Transforms to a list and returns
+     */
     public static List<User> getUsersWithAge(Integer... ages) {
-        List<User> users = new ArrayList<>();
-        for (Integer age : ages) {
-            users.add(new User(age));
-        }
-        return users;
+        return Arrays.stream(ages).map(User::new).toList();
     }
 }
