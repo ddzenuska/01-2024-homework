@@ -1,4 +1,4 @@
-package io.codelex.JavaAdvancedTest;
+package io.codelex.JavaAdvancedTest.BankCards;
 
 public abstract class Card {
     protected int cardNumber;

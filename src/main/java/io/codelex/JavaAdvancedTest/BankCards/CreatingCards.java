@@ -1,4 +1,4 @@
-package io.codelex.JavaAdvancedTest;
+package io.codelex.JavaAdvancedTest.BankCards;
 
 public class CreatingCards {
     public static void main(String[] args) {

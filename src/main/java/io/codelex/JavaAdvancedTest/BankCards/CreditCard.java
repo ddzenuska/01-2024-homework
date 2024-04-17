@@ -1,4 +1,4 @@
-package io.codelex.JavaAdvancedTest;
+package io.codelex.JavaAdvancedTest.BankCards;
 
 public class CreditCard extends Card {
     public CreditCard(int cardNumber, String cardHolderName, String ccv, double balance) {
