@@ -1,8 +1,8 @@
 package io.codelex.polymorphism.practice.exercise2;
 
-class Firework implements Sound {
+class Parrot implements Sound {
     @Override
     public void playSound() {
-        System.out.println("whoosh-bang");
+        System.out.println("kra-kra-kra-kra");
     }
 }

@@ -2,7 +2,7 @@ package io.codelex.polymorphism.practice.exercise4;
 
 public class Firm {
     //-----------------------------------------------------------------
-    // Creates a staff of employees for a firm and pays them.
+    // Creates a staff of employees for a firm and pay them.
     //-----------------------------------------------------------------
     public static void main(String[] args) {
         Staff personnel = new Staff();

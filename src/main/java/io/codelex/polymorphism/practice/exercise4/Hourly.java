@@ -1,7 +1,7 @@
 package io.codelex.polymorphism.practice.exercise4;
 
 public class Hourly extends Employee {
-    private int hoursWorked;
+    protected int hoursWorked;
 
     //-----------------------------------------------------------------
     // Sets up this hourly employee using the specified information.

@@ -18,7 +18,7 @@ public class TVAd extends Advert {
 
     public String toString() {
         return super.toString()
-                + " TV ad: length= " + sec + " secs."
+                + " -> TV ad: length= " + sec + " secs."
                 + " Rate=" + (peak ? rate * 2 : rate);
     }
 }

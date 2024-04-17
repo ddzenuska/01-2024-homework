@@ -16,7 +16,7 @@ public class NewspaperAd extends Advert {
 
     public String toString() {
         return super.toString()
-                + " Newpaper ad: column_cm =" + columnCm
+                + " -> Newpaper ad: column_cm =" + columnCm
                 + " rate=" + rate;
     }
 }
