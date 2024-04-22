@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.*;
 
 public class TriviaQuestion {
+    private static final int NUMBER_OF_POSSIBLE_ANSWERS = 2;
     protected String question;
     protected BigInteger answer;
     private static final Set<String> askedQuestions = new HashSet<>();
@@ -24,7 +25,7 @@ public class TriviaQuestion {
         BigInteger upperLimit = questionAnswer.add(BigInteger.ONE);
         BigInteger randomNumber;
 
-        for (int i = 0; i < (rand.nextInt(2) + 2); i++) {
+        for (int i = 0; i < (rand.nextInt(NUMBER_OF_POSSIBLE_ANSWERS) + NUMBER_OF_POSSIBLE_ANSWERS); i++) {
             do {
                 randomNumber = new BigInteger(upperLimit.bitLength(), rand);
             } while (randomNumber.compareTo(upperLimit) >= 0);

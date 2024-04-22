@@ -27,7 +27,7 @@ public class TriviaGameEngine {
             }
         }
 
-        printScore();
+        printScore(lastCorrectQuestion);
     }
 
     public boolean checkAnswer(BigInteger playerAnswer, TriviaQuestion question) {
@@ -41,7 +41,7 @@ public class TriviaGameEngine {
         }
     }
 
-    public void printScore() {
+    public void printScore(TriviaQuestion lastCorrectQuestion) {
         System.out.println("Game is over! You answered " + (score % 2 == 0 ? score + " questions correctly." : score + " question correctly."));
         if (lastCorrectQuestion != null) {
             System.out.println("Your last correctly answered question: " + "\"" + lastCorrectQuestion.getQuestion() + "\"");
