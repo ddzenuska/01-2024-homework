@@ -1,18 +1,18 @@
 package io.codelex.triviademo;
 
-import java.io.IOException;
 import java.math.BigInteger;
 import java.util.*;
 
-public class TriviaQuestion {
+public class TriviaQuestionAndAnswerFormatter {
+
     private static final int NUMBER_OF_POSSIBLE_ANSWERS = 2;
-    protected String question;
-    protected BigInteger answer;
+    private final String question;
+    private final BigInteger answer;
     private static final Set<String> askedQuestions = new HashSet<>();
     private static final TriviaApiService triviaApiService = new TriviaApiService();
     private static final Random rand = new Random();
 
-    public TriviaQuestion(String question, BigInteger answer) {
+    public TriviaQuestionAndAnswerFormatter(String question, BigInteger answer) {
         this.question = question;
         this.answer = answer;
     }
@@ -38,13 +38,17 @@ public class TriviaQuestion {
         possibleAnswers.forEach(answer -> System.out.println("\t" + answer));
     }
 
-    public static TriviaQuestion getUniqueQuestion() throws IOException {
-        TriviaQuestion question;
-        do {
-            question = triviaApiService.callAPI();
-        } while (askedQuestions.contains(question.getQuestion()));
-        askedQuestions.add(question.getQuestion());
-        return question;
+    public static TriviaQuestionAndAnswerFormatter getUniqueQuestion() throws QuestionException {
+        TriviaQuestionAndAnswerFormatter question;
+        try {
+            do {
+                question = triviaApiService.callAPI();
+            } while (askedQuestions.contains(question.getQuestion()));
+            askedQuestions.add(question.getQuestion());
+            return question;
+        } catch (QuestionException e) {
+            throw new QuestionException("Failed to receive and format unique question from API.", e);
+        }
     }
 
     public String getQuestion() {

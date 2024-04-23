@@ -8,11 +8,11 @@ import java.net.URL;
 
 public class TriviaApiService {
 
-    private static final String triviaQuestionAPI = "http://numbersapi.com/random/trivia";
+    private static final String TRIVIA_QUESTION_API = "http://numbersapi.com/random/trivia";
 
-    public TriviaQuestion callAPI() {
+    public TriviaQuestionAndAnswerFormatter callAPI() {
         try {
-            URL url = new URL(triviaQuestionAPI);
+            URL url = new URL(TRIVIA_QUESTION_API);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
@@ -31,11 +31,10 @@ public class TriviaApiService {
                 BigInteger questionAnswer = (splitTriviaQuestion[0].equals("Infinity") ? BigInteger.valueOf(Integer.MAX_VALUE) : new BigInteger(splitTriviaQuestion[0]));
                 String questionText = splitTriviaQuestion[1];
 
-                return new TriviaQuestion(questionText, questionAnswer);
+                return new TriviaQuestionAndAnswerFormatter(questionText, questionAnswer);
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new ApiException("Failed to call API.", e);
         }
     }
 }
